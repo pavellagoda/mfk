@@ -1,0 +1,29 @@
+<script>
+$(function(){
+	CKEDITOR.replace('content', {
+		"filebrowserBrowseUrl": "/ckfinder/ckfinder.html",
+		"filebrowserImageBrowseUrl": "/ckfinder/ckfinder.html?type=Images",
+		"filebrowserFlashBrowseUrl": "/ckfinder/ckfinder.html?type=Flash",
+		"filebrowserUploadUrl": "/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files",
+		"filebrowserImageUploadUrl": "/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images",
+		"filebrowserFlashUploadUrl": "/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash" });
+});
+</script>
+<form method="post" enctype="multipart/form-data">
+	<div class="grid_2"><label for="title">Заголовок:</label></div>
+	<div class="grid_4"><?php echo $this->escape($this->archiv->title);?></div>
+	<div class="clear"></div>
+	
+	
+	<div class="grid_2"><label for="content">Содержание:</label></div>
+	<div class="clear"></div>
+	<div class="grid_12 alpha omega"><textarea id="content" name="content"
+		class="editor"><?php echo $this->archiv->content;?></textarea></div>
+	<div class="clear"></div>
+	
+	
+	<div class="grid_2 prefix_2">
+	<button class="sexybutton sexysimple"><span class="save">Сохранить</span></button>
+	</div>
+	<div class="clear"></div>
+</form>

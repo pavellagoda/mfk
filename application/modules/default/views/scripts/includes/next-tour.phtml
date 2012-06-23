@@ -1,0 +1,19 @@
+<?php if($this->nextTour) {?>
+	<div class="tournament-table news_block_element">
+		<h4 class="newshead">
+			<span>Следующий тур</span>
+		</h4>
+		
+		<?php foreach($this->nextTour as $game) { ?>
+		
+		<div class="last-result">
+			<div class="last-result-date lineelement"><?php echo FW_Date::convert($game['date'], FW_Date::MYSQL_DATETIME, FW_Date::SITE_DATE); ?></div>
+			<div class="last-result-teams lineelement"><?php echo $game['teamName_1'] ?> &ndash; <?php echo $game['teamName_2'] ?></div> 
+			<div class="result lineelement">?:?</div>
+			<div class="clear"></div>
+		</div>
+		<?php } ?>
+	</div>
+	<div class="left-coll-footer"></div>
+<?php }
+?>

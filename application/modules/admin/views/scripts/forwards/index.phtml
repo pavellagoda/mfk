@@ -1,0 +1,26 @@
+<table>
+	<tr>
+		<th>Имя</th>
+		<th>Команда</th>
+		<th>Голы</th>
+		<th>Пен</th>
+		<th>&nbsp;</th>
+	</tr>
+	<?php
+	foreach ($this->forwards as $forward)
+	{
+		?>
+		<tr>
+			<td><?php echo $forward->name;?></td>
+			<td><?php echo $forward->team;?></td>
+			<td><?php echo $forward->goals;?></td>
+			<td><?php echo $forward->pen;?></td>
+			<td>
+				<a href="/admin/forwards/edit/id/<?php echo $forward->id; ?>" class="sexybutton sexysimple"><span class="add">Редактировать</span></a>
+			</td>
+		</tr>
+		<?php
+	}
+	?>
+</table>
+<a href="<?php echo $this->url(array('action'=>'create'), null);?>" class="sexybutton sexysimple"><span class="add">Добавить бомбардира</span></a>

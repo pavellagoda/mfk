@@ -1,0 +1,38 @@
+<div class="news_block_element">
+	<h4 class="newshead">
+		<span>Профайл</span>
+	</h4>
+	<div class="profile-content">
+		<div class="photoblock lineelement">
+			<img src=<?php echo $this->loggedUser->photo?'/i/users/'.$this->loggedUser->photo:'/i/no-user-photo.jpg' ?>>
+		</div>
+		<div class="infoblock lineelement">
+			<div class="profileelement">
+				<div class="grid_1 alpha">Имя:</div>
+				<div class="grid_4"><?php echo $this->loggedUser->name ?></div>
+				<div class="clear"></div>
+			</div>
+			<div class="profileelement">
+				<div class="grid_1 alpha">Фамилия:</div>
+				<div class="grid_4"><?php echo $this->loggedUser->secondName ?></div>
+				<div class="clear"></div>
+			</div>
+			<div class="profileelement">
+				<div class="grid_1 alpha">E-mail:</div>
+				<div class="grid_4"><?php echo $this->loggedUser->email ?></div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="edit-links">
+			<a href="/profile/edit-data">Изменить личные данные</a>
+			<?php if($this->loggedUser->photo) { ?>
+				<a href="/profile/edit-photo">Изменить фотографию</a>
+				<a href="/profile/delete-photo">Удалить фотографию</a>
+			<?php } else { ?>
+				<a href="/profile/edit-photo">Добавить фотографию</a>
+			<?php } ?>
+			<a href="/profile/edit-password">Изменить пароль</a>
+		</div>
+	</div>
+</div>

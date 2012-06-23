@@ -1,0 +1,18 @@
+<form method="post" enctype="multipart/form-data">
+
+<div class="grid_2"><label for="title">Заголовок:</label></div>
+<div class="grid_4"><input type="text" name="title" id="title"
+	value="<?php echo $this->escape($this->groupItem->title);?>" /></div>
+<div class="clear"></div>
+
+<div class="grid_2"><label for="slug">Slug:</label></div>
+<div class="grid_4"><input type="text" name="slug" id="slug"
+	value="<?php echo $this->escape($this->groupItem->slug);?>" /></div>
+<div class="clear"></div>
+
+
+<div class="grid_2 prefix_2">
+<button class="sexybutton sexysimple"><span class="save">Сохранить</span></button>
+</div>
+<div class="clear"></div>
+</form>

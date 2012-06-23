@@ -1,0 +1,60 @@
+<div class="innerpage lineelement">
+	<h4 class="newshead">
+		<span>Партнеры</span>
+	</h4>
+	<div class="innerpage-content">
+		<div class="logo-partners lineelement"></div>
+		<a class="sponsors-info lineelement" href="/pdf/sponsors.doc">
+			Информация для спонсоров
+		</a>
+		<div class="clear"></div>
+		<div class="partners-maintext">
+			<div class="partners-block">
+				<img class="lineelement" src="/i/partners/zgbk.jpg"/>
+				<div class="lineelement">
+					<p>Акционерное Общество ЗЖБК-5.</p>
+					<p>Отдел сбыта:  716-43-00</p>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="partners-block">
+				<img class="lineelement" src="/i/partners/monolit.jpg"/>
+				<div class="lineelement">
+				
+					<p>Общество с ограниченной ответственностью "Монолит" строительный альянс"</p>
+					<p>Наш девиз: Опыт! Технологии! Решения!</p>
+					<p>61052, г.Харьков, пер. Мало-Панасовский, 4/7</p>
+					<p>тел. (057) 712-11-66, 751-73-73, тел./факс (057) 712-48-00</p>
+				
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="partners-block last-partners-block">
+				<img class="lineelement" src="/i/partners/peroma.jpg"/>
+				<div class="lineelement">
+					<p>Представитель Токмакского гранитного карьера</p>
+					<p>Отдел продаж: 751-97-49; 067 540-13-95</p>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+	<div class="innerpage-footer"></div>
+</div>
+<div class="inner-usercoll users-coll lineelement">
+	<div class="news_block_element">
+		<h4 class="newshead">
+			<span>Новости</span>
+		</h4>
+		<ul>
+			<?php foreach($this->lastMonolitNews as $lastMonolitNew) 
+			{?>
+				<li>
+					<a href="/index/view/id/<?php echo $lastMonolitNew->id; ?>"><?php echo $lastMonolitNew->title; ?></a>
+				</li>
+			<?php } ?>
+		</ul>
+	</div>
+	<div class="left-coll-footer"></div>
+</div>
+<div class="clear"></div>

@@ -1,0 +1,17 @@
+<?php
+	foreach($this->videos as $video)
+	{?>
+		<div class="grid_3"><?php echo $video->title; ?></div>
+		<div class="grid_2"><?php echo $video->file; ?></div>
+		<a class="sexybutton sexysimple" href="/admin/video/delete/id/<?php echo $video->id ?>">
+			<span class="delete">Удалить</span>
+		</a>
+		<div class="clear"></div>
+	<?php 
+	}
+?>
+
+<a class="sexybutton sexysimple" href="/admin/video/add">
+	<span class="add">Добавить видео</span>
+</a>
+<div class="clear"></div>

@@ -1,0 +1,22 @@
+<div class="news_block_element">
+	<div class="news_block">
+			<h4 class="newshead">
+				<span>Новости из рубрики <?php echo $this->escape($this->tag->name);?></span>
+			</h4>
+			<?php if($this->tag->link){ ?>
+			<!--  	<a style="display:block; margin-top: 10px; font-size: 16px;" href="/statistic/show/<?php // echo $this->escape($this->tag->link);?>">Вся Статистика</a> -->
+			<?php } ?>
+			<?php	
+	//			echo count($this->allNews);
+				if(count($this->allNews)>0)
+				{
+					echo $this->partialLoop('index/newsitem.phtml', $this->allNews);
+				} else {
+					echo 'Нет новостей по выбранной категории';
+				}
+			?>
+			
+	</div>
+	<div class="clear"></div>
+	<?php echo $this->paginationControl($this->allNews, 'Sliding', 'index/left-pagination.phtml'); ?>
+</div>

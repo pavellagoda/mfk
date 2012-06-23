@@ -1,0 +1,56 @@
+<div class="sorts">
+	<a href="/admin/games" class="sexybutton sexysimple">Все игры</a>
+	<?php foreach($this->tournaments as $tournament) {?>
+	
+		<a href="/admin/games/index/tounranmentid/<?php echo $tournament->id ?>" class="sexybutton sexysimple"><?php echo $tournament->title ?></a>
+	<?php } ?>
+</div>
+<table>
+	<tr>
+		<th>Тур</th>
+		<th>Команда 1</th>
+		<th>Команда 2</th>
+		<th>Счет</th>
+		<th>&nbsp;</th>
+	</tr>
+	<?php
+	foreach ($this->games as $item)
+	{
+		if(!$this->isTournament)
+		{
+		?>
+		<tr>
+			<td><?php echo $this->escape($item['tourName']);?></td>
+			<td><?php echo $this->escape($item['teamName_1']);?></td>
+			<td><?php echo $this->escape($item['teamName_2']);?></td>
+			<td><?php echo $this->escape($item['goals_1']) . '&nbsp;&mdash;&nbsp;' . $this->escape($item['goals_2']);?></td>
+			<td>
+				<div class="table_actions">
+					<a href="<?php echo $this->url(array('action'=>'edit', 'id'=>$item['id']), null);?>" class="sexybutton sexysimple"><span class="edit">Править</span></a>
+					<a href="<?php echo $this->url(array('action'=>'delete', 'id'=>$item['id']), null);?>" class="sexybutton sexysimple"><span class="delete">Удалить</span></a>
+				</div>
+			</td>
+		</tr>
+		<?php
+		}
+		else 
+		{?>
+		<tr>
+			<td><?php echo $this->escape($item['title']);?></td>
+			<td><?php echo $this->escape($item['team_title_1']);?></td>
+			<td><?php echo $this->escape($item['team_title_2']);?></td>
+			<td><?php echo $this->escape($item['goals_1']) . '&nbsp;&mdash;&nbsp;' . $this->escape($item['goals_2']);?></td>
+			<td>
+				<div class="table_actions">
+					<a href="<?php echo $this->url(array('action'=>'edit', 'id'=>$item['id']), null);?>" class="sexybutton sexysimple"><span class="edit">Править</span></a>
+					<a href="<?php echo $this->url(array('action'=>'delete', 'id'=>$item['id']), null);?>" class="sexybutton sexysimple"><span class="delete">Удалить</span></a>
+				</div>
+			</td>
+		</tr>
+		<?php }
+	}
+	
+	?>
+</table>
+<?php echo $this->paginationControl($this->games, 'Sliding', 'pagination.phtml'); ?>
+<a href="<?php echo $this->url(array('action'=>'create'), null);?>" class="sexybutton sexysimple"><span class="add">Добавить игру</span></a>

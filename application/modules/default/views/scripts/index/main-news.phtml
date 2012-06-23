@@ -1,0 +1,72 @@
+<div class="innerpage lineelement">
+	<h4 class="newshead">
+		<span><?php echo $this->escape($this->newsItem->title);?></span>
+	</h4>
+	<div class="innerpage-content">
+		<p class="date"><?php echo FW_Date::convert($this->newsItem->createdTs, FW_Date::MYSQL_DATETIME, FW_Date::SITE_DATE);?></p>
+		<img class="news_img_show" src="<?php echo ''!=$this->newsItem->customIcon?$this->newsItem->customIcon:'/i/simple.jpg';?>"/>
+		<div class="full"><?php echo $this->newsItem->full;?></div>
+		<div class="clear"></div>
+		<div class="comments">
+               <div class="comment-header">Комментарии</div>
+               <?php foreach ($this->comments as $item): ?>
+                   <div class="item">
+                   		<div class="lineelement comment-date-name">
+                           <div class="comment-name"><?php echo $this->escape($item['name']);?></div>
+                           <div class="comment-date"><?php echo FW_Date::convert($item['created_ts'], FW_Date::MYSQL_DATETIME, FW_Date::SITE_DATE);?></div>
+                        </div>
+                        <div class="comment-text lineelement"><?php echo $this->escape($item['text']);?></div>
+                        <div class="clear"></div>
+                   </div>
+               <?php endforeach; ?>
+               <div class="comment-header">Добавить свой комментарий</div>
+               <?php if($this->loggedUser) { ?>
+	               <form method="post" action="" class="contact-form">
+		               <div class="contact-form-block">
+			               <div class="grid_2">
+			                       <label for="text">Комментарий<?php echo count($this->formErrors['text'])?' <span class="errors">(поле заполнено неправильно)</span>':'';?>:</label>
+			               </div>
+			               <div class="grid_5">
+			                       <textarea rows="7" id="text" name="text"></textarea>
+			               </div>
+			               <div class="clear"></div>
+			           </div>
+		               <div class="contact-form-block">
+		               
+		               	   <div class="grid_2">
+			                       <label for="text">Введите символы <?php echo count($this->formErrors['text'])?' <span class="errors">(поле заполнено неправильно)</span>':'';?>:</label>
+			               </div>
+		               		
+			               <div class="grid_5 captcha">
+			                       <?php
+			                      	 echo $this->captcha;
+			                       ?>
+			               </div>
+			               <div class="clear"></div>
+		               </div>
+		               <div class="grid_5">
+		                       <button>Добавить комментарий</button>
+		               </div>
+		               <div class="clear"></div>
+	               </form>
+                <?php } else { ?>
+			   		<div class="for-logged-user">Комментарии могут оставлять только зарегистрированные пользователи.<br/>Мы рекомендуем Вам <a href="/login">зайти под своим именем</a>  или <a href="/register">зарегистрироваться</a></div>
+			   <?php } ?>
+       </div>
+	</div>
+	<div class="innerpage-footer"></div>
+</div>
+<div class="inner-usercoll users-coll lineelement">
+	<?php
+	
+		echo $this->render('includes/last-results.phtml');
+		
+		if($this->tournament->type=='championship')
+			echo $this->render('includes/tournament-table.phtml');
+		
+		echo $this->render('includes/next-tour.phtml');
+		
+		echo $this->partial('includes/poll.phtml', array('poll'=>$this->poll, 'variants' => $this->pollVariants, 'votedPolls' => $this->votedPolls, 'loggedUser'=>$this->loggedUser));
+	?>
+</div>
+<div class="clear"></div>

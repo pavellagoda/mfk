@@ -1,0 +1,42 @@
+<div class="polls news_block_element">
+	<?php if ($this->poll) { ?>
+	<h4 class="newshead">
+		<span>Голосование</span>
+	</h4>
+	<?php if($this->loggedUser) { ?>
+		<div id="poll">
+			<?php 
+			if (array_key_exists($this->poll->id, $this->votedPolls)) : ?>
+			<div class="form">
+			<div class="question"><?php echo $this->escape($this->poll->question);?></div>
+				<ul class="poll">
+				<?php foreach ($this->variants as $variant) {?>
+					<li>
+						<span class="lineelement poll-variant"><?php echo $this->escape($variant->text);?></span>
+						<span class="lineelement poll-result"><?php echo $variant->votes; ?></span>
+					</li>
+				<?php } ?>
+				</ul>
+			</div>
+			<?php else : ?>
+			<div class="form">
+			<div class="question"><?php echo $this->escape($this->poll->question);?></div>
+			<form action="/polls" method="post">
+				<ul class="poll">
+				<?php foreach ($this->variants as $variant) {?>
+					<li><input type="radio" name="answer" id="c_name_<?php echo $variant->id; ?>" value="<?php echo $variant->id; ?>"/><label for="c_name_<?php echo $variant->id;?>"><?php echo $this->escape($variant->text);?></label></li>
+				<?php } ?>
+				</ul>
+				<button>Отправить</button>
+			</form>
+			</div>
+			<?php endif; ?>
+		</div>
+		<a class="all-polls menutype-button" href="/polls">Все голосования</a>
+		<div class="clear"></div>
+	<?php } else { ?>
+		<div id="poll">Голосования доступны только для зарегистрированных пользователей. Мы рекомендуем Вам <a href="/login">зайти под своим именем</a>  или <a href="/register">зарегистрироваться</a></div> 
+	<?php } ?>
+	<?php } ?>
+</div>
+<div class="left-coll-footer"></div>

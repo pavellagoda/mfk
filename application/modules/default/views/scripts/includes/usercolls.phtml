@@ -1,0 +1,14 @@
+<div class="lineelement user_colls">
+	<div class="users-coll">
+		<?php echo $this->render('includes/last-results.phtml')  ?>
+		<?php echo $this->render('includes/tournament-table.phtml')  ?>
+		<?php echo $this->render('includes/forwards.phtml')  ?>
+		<?php echo $this->render('includes/next-tour.phtml')  ?>
+
+		<?php
+			echo $this->partial('includes/poll.phtml', array('poll'=>$this->poll, 'variants' => $this->pollVariants, 'votedPolls' => $this->votedPolls, 'loggedUser'=>$this->loggedUser));
+//				echo $this->partial('includes/chat.phtml');
+		?>
+		<?php echo $this->render('includes/adverstings.phtml')  ?>
+	</div>
+</div>

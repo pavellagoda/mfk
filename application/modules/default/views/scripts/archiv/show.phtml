@@ -1,0 +1,29 @@
+<div class="innerpage lineelement">
+	<h4 class="newshead">
+		<span>Архив</span>
+	</h4>
+	<div class="innerpage-content">
+		<div class="statistic-page">
+			<?php echo $this->page->content; ?>
+		</div>
+	</div>
+	<div class="innerpage-footer"></div>
+</div>
+
+<div class="inner-usercoll users-coll lineelement">
+	<div class="news_block_element">
+		<h4 class="newshead">
+			<span>Новости</span>
+		</h4>
+		<ul>
+			<?php foreach($this->lastMonolitNews as $lastMonolitNew) 
+			{?>
+				<li>
+					<a href="/index/view/id/<?php echo $lastMonolitNew->id; ?>"><?php echo $lastMonolitNew->title; ?></a>
+				</li>
+			<?php } ?>
+		</ul>
+	</div>
+	<div class="left-coll-footer"></div>
+</div>
+<div class="clear"></div>

@@ -1,0 +1,52 @@
+<div class="innerpage lineelement">
+	<h4 class="newshead">
+		<span>Календарь</span>
+	</h4>
+	<div class="innerpage-content">
+		<h4>Календарь Высшей лиги чемпионата Украины сезон 2010/2011</h4>
+		<?php
+			foreach ($this->allTours as $tour) {
+				echo '
+					<div class="tour-result lineelement">
+						<div class="tour-name">'.$tour->title.'</div>';
+				foreach ($this->games as $game) {
+					if($game->idTour==$tour->id){
+					?>
+						<div class="result-line">
+							<div class="calendar-date lineelement"><?php echo FW_Date::convert($game->date, FW_Date::MYSQL_DATETIME, FW_Date::SITE_DATE) ?></div>
+							<div class="calendar-teams lineelement"><?php echo $game->teamTitle1;?> &ndash; <?php echo $game->teamTitle2;?></div>
+							<div class="calendar-result lineelement"><?php echo $game->completed?$game->goals1:'?';?>:<?php echo $game->completed?$game->goals2:'?';?></div>
+							<div class="clear"></div>
+						</div>
+					<?php
+					}
+				}
+				
+				echo '</div>';
+			}
+		?>
+
+		<div class="clear"></div>
+	</div>
+	<div class="innerpage-footer"></div>
+</div>
+<div class="inner-usercoll users-coll lineelement">
+
+	<?php echo $this->render('includes/tournament-table.phtml'); ?>
+
+	<div class="last-monolit-news news_block_element">
+		<h4 class="newshead">
+			<span>Новости</span>
+		</h4>
+		<ul>
+			<?php foreach($this->lastMonolitNews as $lastMonolitNew)
+			{?>
+				<li>
+					<a href="/index/view/id/<?php echo $lastMonolitNew->id; ?>"><?php echo $lastMonolitNew->title; ?></a>
+				</li>
+			<?php } ?>
+		</ul>
+	</div>
+	<div class="left-coll-footer"></div>
+</div>
+<div class="clear"></div>

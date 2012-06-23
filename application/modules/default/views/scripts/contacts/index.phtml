@@ -1,0 +1,71 @@
+<div class="innerpage lineelement">
+	<h4 class="newshead">
+		<span>Контакты</span>
+	</h4>
+	<div class="innerpage-content">
+		<div class="contact-page">
+			<div class="logo-partners"></div>
+			<h4 class="history_text">Мини-футбольный клуб Монолит</h4>
+			<div class="maintext">
+				<p class="contacts_text">61052, Харьков, пер. Мало-Панасовский, 4/7.<br/>
+				Тел.: (057) 751-97-49</p>
+				
+				<p class="contacts_text">Директор МФК «Монолит»<br/>
+				Пугунец Тимур Сергеевич тел. (067) 575-50-80</p>
+				
+				<p class="contacts_text">Пресс-атташе МФК «Монолит»<br/>
+				Маслак Валентин Викторович – (097) 321-62-42, (066) 210-07-90</p>
+		
+				<p>Электронная почта: <a class="email" href="mailto:mfk-monolit@mail.ru">mfk-monolit@mail.ru</a></p>
+			</div>
+			
+			<div class="mail-is-send <?php if(!$this->mailIsSent) echo 'hide'; ?>">Спасибо! Ваше письмо отправлено!</div>
+			
+			<div class="back-form">
+				<form action="#" method="post" class="contact-form">
+					<div class="contact-form-block">
+						<div class="grid_2 alpha">
+							<label for="name">Имя:</label>
+						</div>
+						<div class="grid_4 alpha">
+							<input type="text" name="name" id="name"/>
+						</div>
+						<div class="clear"></div>
+					</div>
+					
+					<div class="contact-form-block">
+						<div class="grid_2 alpha">
+							<label for="email">E-mail:</label>
+						</div>
+						<div class="grid_4 alpha">
+							<input type="text" name="email" id="email"/>
+						</div>
+						<div class="clear"></div>
+					</div>
+					
+					<div class="contact-form-block">
+						<div class="grid_2 alpha">
+							<label for="msg">Сообщение:</label>
+						</div>
+						<div class="grid_4 alpha">
+							<textarea name="msg" id="msg" rows="10"></textarea>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<input type="submit" value="Отправить"/>
+					
+				
+				</form>
+			
+			</div>
+		</div>
+	</div>
+	<div class="innerpage-footer"></div>
+</div>
+<div class="inner-usercoll users-coll lineelement">
+	<?php
+		echo $this->render('includes/tournament-table.phtml');
+		echo $this->partial('includes/poll.phtml', array('poll'=>$this->poll, 'variants' => $this->pollVariants, 'votedPolls' => $this->votedPolls, 'loggedUser'=>$this->loggedUser));
+	?>
+</div>
+<div class="clear"></div>

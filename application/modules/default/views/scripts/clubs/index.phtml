@@ -1,0 +1,20 @@
+<div class="news_block_element">
+	
+	<h4 class="newshead">
+		<span>Клубы</span>
+	</h4>
+		<div class="clubs">
+			<div class="categories-club">КЛУБЫ ВЫСШЕЙ ЛИГИ</div>
+			<?php foreach($this->clubs as $club) { ?>
+			
+				<a href="/clubs/show/id/<?php echo $club->id ?>">
+					<span><?php echo $club->name ?></span>
+					<img src="<?php echo $club->logo ?>"/>
+					<span><?php echo $club->city ?></span>
+				</a>
+			
+			<?php } ?>
+			<div class="clear"></div>
+		</div>
+</div>
+<div class="clear"></div>

@@ -1,0 +1,32 @@
+<div id="main_flash"></div>
+<script type="text/javascript">
+	<?php if($this->isTopBaner){ ?>
+		var banner = new SWFObject("/swf/top.swf", "topbaner", "960", "117", "9", "#ffffff");
+		banner.write("top_banner");
+	 <?php } ?>
+	var main_flash = new SWFObject("/swf/baner_new.swf", "bigbaner", "968", "412", "9", "#ffffff");
+	main_flash.addParam("wmode", "transparent");
+	main_flash.write("main_flash");
+</script>
+<div class="evro">
+	<div class="evro-content">
+		<a href="/tournaments/show/tournamentid/31/tag/18">
+			Группа 1<br/>Испания<br/>Франция<br/>Азербайджан<br/>Казахстан
+		</a>
+		<a href="/tournaments/show/tournamentid/32/tag/18">
+			Группа 2<br/>Россия<br/>Сербия<br/>Голландия<br/>Финляндия
+		</a>
+		<a href="/tournaments/show/tournamentid/33/tag/18">
+			Группа 3<br/>Португалия<br/>Польша<br/>Беларусь<br/>Македония
+		</a>
+		<a href="/tournaments/show/tournamentid/34/tag/18">
+			Группа 4<br/>Чехия<br/>Словакия<br/>Румыния<br/>Норвегия
+		</a>
+		<a href="/tournaments/show/tournamentid/35/tag/18">
+			Группа 5<br/>Украина<br/>Турция<br/>Венгрия<br/>Бельгия
+		</a>
+		<a href="/tournaments/show/tournamentid/36/tag/18">
+			Группа 6<br/>Италия<br/>Словения<br/>Босния<br/>Латвия
+		</a>
+	</div>
+</div>

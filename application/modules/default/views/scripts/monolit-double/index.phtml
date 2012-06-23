@@ -1,0 +1,96 @@
+<div class="innerpage lineelement">
+	<h4 class="newshead">
+		<span>Монолит 2</span>
+	</h4>
+	<div class="innerpage-content">
+		<div class="player-list">
+			<div class="trainers">
+				<div class="lineelement player-position">Тренер</div>
+				<div class="lineelement player-infos">
+					<div class="player-info">
+						<div class="lineelement player-name">Чернышев Виталий Александрович</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			
+			<div class="fieldplayers">
+				<div class="lineelement player-position">Вратари</div>
+				<div class="lineelement player-infos">
+					<div class="player-info">
+						<div class="lineelement player-name">Мякота Роман</div>
+						<div class="clear"></div>
+					</div>
+					<div class="player-info">
+						<div class="lineelement player-name">Явдошенко Роман</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		
+			<div class="fieldplayers">
+				<div class="lineelement player-position">Универсалы</div>
+				<div class="lineelement player-infos">
+					<div class="player-info">
+						<div class="lineelement player-name">Петренко Юрий</div>
+						<div class="clear"></div>
+					</div>
+					<div class="player-info">
+						<div class="lineelement player-name">Шешенев Кирилл</div>
+						<div class="clear"></div>
+					</div>
+					<div class="player-info">
+						<div class="lineelement player-name">Кравченко Евгений</div>
+						<div class="clear"></div>
+					</div>
+					<div class="player-info">
+						<div class="lineelement player-name">Халин Дмитрий</div>
+						<div class="clear"></div>
+					</div>
+					<div class="player-info">
+						<div class="lineelement player-name">Иванов Александр</div>
+						<div class="clear"></div>
+					</div>
+					<div class="player-info">
+						<div class="lineelement player-name">Мамедов Ариф</div>
+						<div class="clear"></div>
+					</div>
+					<div class="player-info">
+						<div class="lineelement player-name">Педяш Александр</div>
+						<div class="clear"></div>
+					</div>
+					<div class="player-info">
+						<div class="lineelement player-name">Лазаренко Денис</div>
+						<div class="clear"></div>
+					</div>
+					<div class="player-info">
+						<div class="lineelement player-name"></div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			
+		</div>
+	</div>
+	<div class="innerpage-footer"></div>
+</div>
+<div class="inner-usercoll users-coll lineelement">
+	<div class="news_block_element">
+		<h4 class="newshead">
+			<span>Новости</span>
+		</h4>
+		<ul>
+			<?php foreach($this->lastMonolitNews as $lastMonolitNew) 
+			{?>
+				<li>
+					<a href="/index/view/id/<?php echo $lastMonolitNew->id; ?>"><?php echo $lastMonolitNew->title; ?></a>
+				</li>
+			<?php } ?>
+		</ul>
+	</div>
+	<div class="left-coll-footer"></div>
+</div>
+<div class="clear"></div>

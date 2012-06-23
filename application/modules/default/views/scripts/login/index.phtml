@@ -1,0 +1,27 @@
+<div class="news_block_element">
+	<h4 class="newshead">
+		<span>Вход</span>
+	</h4>
+	<div class="register-form">
+		<div class="error">
+			<?php if($this->badLoginText)
+					echo $this->badLoginText;
+			?>
+		</div>
+		<form id="loginform" method="post" action="/login">
+			<div class="loginelement">
+				<div class="grid_1 alpha">Имя</div>
+				<input type="text" name="email" class="login-input"></input>
+			</div>
+			<div class="loginelement">
+				<div class="grid_1 alpha">Пароль</div>
+				<input type="password" name="password" class="login-input"></input>
+			</div>
+			<input type="submit" value="отправить" class="login-input"/>
+		</form>
+	</div>
+	<div class="clear"></div>
+	<div class="forgot-password">
+		<a href="/forgot-password">Забыли пароль?</a>
+	</div>
+</div>

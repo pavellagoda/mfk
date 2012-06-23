@@ -1,0 +1,24 @@
+<div class="news_block_element">
+	<h4 class="newshead">
+		<span>Фото</span>
+	</h4>
+	<div class="grid_4">
+
+		<?php foreach ($this->photoCategories as $photoCategory) { ?>
+			<a class="rules-link menutype-button" href="/photo/categories/id/<?php echo $photoCategory->id; ?>"><?php echo $photoCategory->title; ?></a>
+		<?php } ?>
+		
+	</div>
+	
+	
+	<div class="grid_7">
+		<?php foreach ($this->lastPhotos as $lastPhoto) {?>
+		<a rel="photo_group" href="/photofiles/<?php echo $lastPhoto['photo_categories_id'];?>/<?php echo $lastPhoto['id'];?>.jpg">
+			<img class="photo-img" src="/photofiles/<?php echo $lastPhoto['photo_categories_id'];?>/<?php echo $lastPhoto['id'];?>.jpg "/>
+		</a>
+		<?php } ?>
+		<div class="clear"></div>
+		<?php echo $this->paginationControl($this->lastPhotos, 'Sliding', 'photo/pagination.phtml'); ?>	
+	</div>
+	<div class="clear"></div>
+</div>

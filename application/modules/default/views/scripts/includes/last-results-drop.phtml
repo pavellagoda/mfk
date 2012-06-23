@@ -1,0 +1,42 @@
+<script type="text/javascript">
+	function gotoNews(idNews)
+	{
+		window.location.href = "/index/view/id/"+idNews;
+	}
+</script>
+<div class="last-results news_block_element">
+	<h4 class="newshead">
+		<span>Последние результаты</span>
+	</h4>
+	
+	<div class="tours">
+		<span>Выберите тур:</span>
+		<select name="tour_id" id="tour_id">
+			<?php foreach($this->allTours as $tour) {?>
+			<option value="/<?php echo $this->controllerName.'/'.$this->actionName.'/tournamentid/'.$this->tournament->id.'/tag/'.$this->tag->id.'/idtour/'.$tour->id ?>" <?php echo ($tour->id==$this->idTour) ? 'selected="selected"':'' ?>><?php echo $tour->title ?></option>
+			<?php } ?>
+		
+		</select>
+	
+	</div>
+	
+	<?php foreach ($this->lastGames as $game)
+	{ ?>
+	<div class="last-result <?php if(($game['teamName_1']=='Монолит')||($game['teamName_2']=='Монолит')) echo 'monolit-team' ?>" <?php 
+		if($game['news_id']!=null) 
+		{?>
+			onclick="gotoNews(<?php echo $game['news_id'] ?>)"
+		<?php } 
+	?>>
+		<div class="last-result-date lineelement"><?php echo $game['date']!=null? FW_Date::convert($game['date'], FW_Date::MYSQL_DATETIME, FW_Date::SITE_DATE):'00.00.0000' ?></div>
+		<div class="last-result-teams lineelement">
+			<span <?php echo $game['goals_1']>$game['goals_2']? 'class="winner"':'' ?>><?php echo $game['teamName_1'];?></span>
+			&ndash; 
+			<span <?php echo $game['goals_1']<$game['goals_2']? 'class="winner"':'' ?>><?php echo $game['teamName_2'];?></span>
+		</div> 
+		<div class="result lineelement"><?php echo $game['completed']?$game['goals_1']:'?';?>:<?php echo $game['completed']?$game['goals_2']:'?';?></div>
+		<div class="clear"></div>
+	</div>
+	<?php }?>
+</div>
+<div class="left-coll-footer"></div>

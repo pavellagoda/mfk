@@ -1,0 +1,116 @@
+<div class="news_block">
+	<div class="lineelement news_colls">
+		<div class="last_news news_block_element">
+			<h4 class="newshead monolit">
+				<span>Последние новости</span>
+			</h4>
+			<div class="last_news_pict lineelement">
+				<div class="last-news-frame-container">
+    				<?php
+    				foreach ($this->lastNews as $iteration => $item) {
+    				?>
+    				<div class="last-news-frame<?php echo 0 == $iteration?' active':''; ?>">
+    				<img src="<?php echo $item->customIcon?$item->customIcon:'/i/simple.jpg' ?>" class="last-new-img" />
+    				</div>
+    				<?php } ?>
+    			</div>
+
+				<div class="img-numeric last-news-switcher">
+					<a href="#" class="active">1</a>
+					<a href="#">2</a>
+					<a href="#">3</a>
+					<a href="#">4</a>
+					<a href="#">5</a>
+					<a href="#">6</a>
+				</div>
+				<div class="last-news-frame-container">
+				<?php
+				foreach ($this->lastNews as $iteration => $item) {
+
+				?>
+    				<div class="last-news-frame<?php echo 0 == $iteration?' active':''; ?>">
+        				<h4 class="last-new-title"><a href="/index/view/id/<?php echo $item->id; ?>"><?php echo $item->title?></a></h4>
+        				<span class="date"><?php echo FW_Date::convert($item->createdTs, FW_Date::MYSQL_DATETIME, FW_Date::SITE_DATE);?></span>
+        				<span class="time"><?php echo FW_Date::convert($item->createdTs, FW_Date::MYSQL_DATETIME, FW_Date::SITE_TIME);?></span>
+        				<div class="last-news-text"><?php echo $item->short?></div>
+    				</div>
+				<?php } ?>
+				</div>
+			</div>
+			<div class="lineelement articles">
+
+				<?php foreach($this->lastNews as $lastNew)
+				{
+
+//					print_r($lastNew); die;
+				?>
+
+					<div class="last-news-item">
+						<a href="/index/view/id/<?php echo $lastNew->id; ?>">
+							<img src="<?php echo $lastNew->customIcon?$lastNew->customIcon:'/i/simple.jpg' ?>"/>
+							<span><?php echo $lastNew->title; ?></span>
+							<span class="clear">;nbsp</span>
+							<span class="user-info-block">
+								<span class="comments"><?php echo $lastNew->comments ?></span>
+								<span class="views"><?php echo $lastNew->viewsCount ?></span>
+							</span>
+						</a>
+						<div class="clear"></div>
+					</div>
+
+
+				<?php } ?>
+
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="last-news-footer"></div>
+		<div class="mainnews-block">
+			<div class="lineelement news-coll news_block_element">
+				<div class="news-coll-inner">
+					<h4 class="newshead monolit">
+						<span><?php echo $this->escape($this->categoryLeft->title);?></span>
+					</h4>
+					<?php
+						echo $this->partialLoop('index/newsitem.phtml', $this->newsLeft);
+					?>
+					<?php echo $this->paginationControl($this->newsLeft, 'Sliding', 'index/left-pagination.phtml'); ?>
+				</div>
+				<div class="news_block_footer left-footer"></div>
+			</div>
+			<div class="lineelement news-coll right-news-coll news_block_element">
+				<div class="news-coll-inner">
+					<h4 class="newshead futsal">
+						<span>Новости футзала</span>
+					</h4>
+					<?php
+						echo $this->partialLoop('index/newsitem.phtml', $this->newsRight);
+					?>
+					<?php echo $this->paginationControl($this->newsRight, 'Sliding', 'index/right-pagination.phtml'); ?>
+				</div>
+				<div class="news_block_footer right-footer"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="lineelement user_colls">
+	<div class="users-coll">
+		<?php echo $this->render('includes/last-results.phtml')  ?>
+		<?php echo $this->render('includes/tournament-table.phtml')  ?>
+		<?php echo $this->render('includes/forwards.phtml')  ?>
+		<?php echo $this->render('includes/next-tour.phtml')  ?>
+		<?php echo $this->render('includes/sportua.phtml')  ?>
+
+		<?php
+			echo $this->partial('includes/poll.phtml', array('poll'=>$this->poll, 'variants' => $this->pollVariants, 'votedPolls' => $this->votedPolls, 'loggedUser'=>$this->loggedUser));
+//				echo $this->partial('includes/chat.phtml');
+		?>
+		<?php echo $this->render('includes/adverstings.phtml')  ?>
+	</div>
+</div>
+	<div class="clear"></div>
+</div>
+<?php  echo $this->render('includes/partners.phtml'); ?>
+<?php  echo $this->render('includes/videopage.phtml'); ?>
+	</div>
+</div>

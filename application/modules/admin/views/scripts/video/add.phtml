@@ -1,0 +1,40 @@
+<form action="/admin/video/add" method="post" enctype="multipart/form-data">
+	<div class="grid_2">
+		<label for="title">Название:</label>
+	</div>
+	<div class="grid_4">
+		<input type="text" name="title" id="title"/>
+	</div>
+	<div class="clear"></div>
+	<div class="grid_2">
+		<label for="file">Файл:</label>
+	</div>
+	<div class="grid_4">
+		<input type="file" name="file" id="file"/>
+	</div>
+	<div class="clear"></div>
+	<div class="grid_2">
+		<label for="thumb">Картинка:</label>
+	</div>
+	<div class="grid_4">
+		<input type="file" name="thumb" id="thumb"/>
+	</div>
+	<div class="clear"></div>
+	
+	<div class="grid_2">
+		<label for="video_categories_id">Категория:</label>
+	</div>
+	<div class="grid_4">
+		<select name="video_categories_id" id="video_categories_id">
+			<?php foreach($this->videoCategories as $videoCategory) {?>
+				<option value="<?php echo $videoCategory->id ?>"><?php echo $videoCategory->title ?></option>
+			<?php } ?>
+		
+		</select>
+	</div>
+	<div class="clear"></div>
+	
+	
+	<input type="submit" value="Загрузить" class="sexybutton sexysimple"/>
+	<a href="/admin/video" class="sexybutton sexysimple">Отменить</a>
+</form>

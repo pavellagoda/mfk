@@ -1,0 +1,11 @@
+<form method="post">
+	<div class="grid_2"><label for="title">Название:</label></div>
+	<div class="grid_4"><input type="text" name="title" id="title"
+		value="<?php echo $this->escape($this->album->title);?>" /></div>
+	<div class="clear"></div>
+	
+	<div class="grid_2 prefix_2">
+	<button class="sexybutton sexysimple"><span class="save">Сохранить</span></button>
+	</div>
+	<div class="clear"></div>
+</form>

@@ -1,0 +1,69 @@
+<div class="videoblock news_block_element">
+	<h4 class="newshead monolit">
+		<span>Видео</span>
+	</h4>
+	<div class="video">
+		<div class="lineelement videoinfo">
+			<div id="videoplayer" class="grid_2">
+			</div>
+			<div class="clear"></div>
+			<div class="video-categories">
+				<a class="menutype-button video-category-links" href="/video/category/id/1">Монолит</a>
+				<a class="menutype-button video-category-links" href="/video/category/id/2">Украина</a>
+				<a class="menutype-button video-category-links" href="/video/category/id/3">Мир</a>
+			</div>
+			
+		</div>
+		<script type="text/javascript">
+			var player = new SWFObject("/swf/videoplayer.swf", "pl", "440", "365", "9", "#000");
+			player.addVariable("first", "<?php $videos = $this->videos;	print_r($videos[0]->file);?>");
+			player.addParam("allowFullScreen", "true");
+			player.addParam("wmode", "window");
+			player.write("videoplayer");
+
+			var count  = 0;
+			
+			function playVideo(src, id)
+			{
+				count++;
+
+//				alert(count);
+				videoCommentsLoad(id);
+				var myFlashMovie = document.getElementById("pl");
+				myFlashMovie.playFromStart(src);
+			}
+
+			
+			
+			$(function(){
+//				videoCommentsLoad(<?php // echo $this->videos[0]->id; ?>);
+			});
+		</script>
+		<div class="videolinks lineelement">
+			<?php
+				$count = 0;
+				foreach ($this->videos as $video)
+				{
+					$count++;
+					?>
+					<a onclick="playVideo('<?php echo $video->file; ?>', <?php echo $video->id; ?>)" id="video<?php echo $video->id; ?>" class="videolink">
+						<img src="/i/video/<?php
+							if($video->thumb)
+								echo $video->thumb;
+							else echo 'default.jpg'
+						?>" alt=""/>
+						<br/><?php echo $video->title; ?>
+						<span class="video-info">
+							<span class="comments"><?php echo $video->comments; ?></span>
+							<span class="views"><?php echo $video->viewsCount; ?></span>
+						</span>
+					</a>
+					
+			<?php
+				if($count%2==0) echo '<div class="clear"></div>';
+				}
+			?>
+		</div>
+		<div class="clear"></div>
+		
+		

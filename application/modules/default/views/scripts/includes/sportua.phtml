@@ -1,0 +1,16 @@
+<?php if($this->nextTour) {?>
+	<div class="tournament-table news_block_element">
+		<h4 class="newshead">
+			<span>Новости futsal.sport.ua</span>
+		</h4>
+		
+		<?php foreach($this->sportua as $new) { ?>
+		
+		<div class="sportua-news table-teams ">
+			<a onclick="this.target='target'" href="<?php echo $new->url?>"><?php echo $new->title ?></a>
+		</div>
+		<?php } ?>
+	</div>
+	<div class="left-coll-footer"></div>
+<?php }
+?>

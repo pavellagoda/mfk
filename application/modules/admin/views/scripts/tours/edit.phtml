@@ -1,0 +1,23 @@
+<form method="post">
+	<div class="grid_2"><label for="title">Название:</label></div>
+	<div class="grid_4"><input type="text" name="title" id="title"
+		value="<?php echo $this->escape($this->tour->title);?>" /></div>
+	<div class="clear"></div>
+	
+	
+	<div class="grid_2"><label for="tournament_id">Турнир:</label></div>
+	<div class="grid_4">
+		<select name="tournament_id" id="tournament_id">
+			
+			<?php foreach ($this->tournaments as $tournament) { ?>
+				<option value="<?php echo $tournament->id ?>" <?php echo ($this->tour->idTournament==$tournament->id)?'selected="selected"':'' ?> ><?php echo $tournament->title ?></option>
+			<?php } ?>
+		</select>
+	</div>
+	<div class="clear"></div>
+	
+	<div class="grid_2 prefix_2">
+	<button class="sexybutton sexysimple"><span class="save">Сохранить</span></button>
+	</div>
+	<div class="clear"></div>
+</form>

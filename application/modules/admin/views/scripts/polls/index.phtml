@@ -1,0 +1,28 @@
+<table>
+	<tr>
+		<th>#</th>
+		<th>Название</th>
+		<th>Статус</th>
+		<th>&nbsp;</th>
+	</tr>
+	<?php
+	foreach ($this->polls as $item)
+	{
+		?>
+		<tr>
+			<td><?php echo $item['id'];?></td>
+			<td><?php echo $this->escape($item['question']);?></td>
+			<td><?php echo $item['active']?'Вкл':'Выкл';?></td>
+			<td>
+				<div class="table_actions">
+					<a href="<?php echo $this->url(array('action'=>'edit', 'id'=>$item['id']), null);?>" class="sexybutton sexysimple"><span class="edit">Править</span></a>
+					<a href="<?php echo $this->url(array('controller'=>'variants', 'action'=>'index', 'poll'=>$item['id']), null);?>" class="sexybutton sexysimple"><span class="edit">Варианты</span></a>
+					<a href="<?php echo $this->url(array('action'=>'delete', 'id'=>$item['id']), null);?>" class="sexybutton sexysimple"><span class="delete">Удалить</span></a>
+				</div>
+			</td>
+		</tr>
+		<?php
+	}
+	?>
+</table>
+<a href="<?php echo $this->url(array('action'=>'create'), null);?>" class="sexybutton sexysimple"><span class="add">Добавить опрос</span></a>

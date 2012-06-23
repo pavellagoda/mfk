@@ -1,0 +1,40 @@
+<div class="<?php if(($this->controllerName=='index')||($this->controllerName=='tournaments')) echo 'tournament-table' ?> news_block_element">
+	<h4 class="newshead">
+		<span>Турнирная таблица</span>
+	</h4>
+	<div class="table">
+		<div class="table-head">
+			<div class="team-position lineelement">&nbsp;</div>
+			<div class="team-name lineelement">Команда</div>
+			<div class="team-games lineelement">И</div>
+			<div class="team-games lineelement">В</div>
+			<div class="team-games lineelement">Н</div>
+			<div class="team-games lineelement">П</div>
+			<div class="team-balls lineelement">З-П</div>
+			<div class="team-point lineelement">О</div>
+			<div class="clear"></div>
+		</div>
+		<?php
+		$i = 0;
+		foreach ($this->tourTable as $row)
+		{
+			$i++;
+		?>
+			<div class="table-teams <?php if($row['title']=='Монолит') echo 'monolit-team' ?>">
+				<div class="team-position lineelement"><?php echo $i;?></div>			
+				<div class="team-name lineelement">
+					<?php echo $row['club_id']?'<a href="/clubs/show/id/'.$row['club_id'].'">'.$row['title'].'</a>':$row['title'];?>
+				</div>
+				<div class="team-games lineelement"><?php echo $row['win']+$row['draw']+$row['fail'];?></div>
+				<div class="team-games lineelement"><?php echo $row['win'];?></div>
+				<div class="team-games lineelement"><?php echo $row['draw'];?></div>
+				<div class="team-games lineelement"><?php echo $row['fail'];?></div>
+				<div class="team-balls lineelement"><?php echo $row['goals'].'-'.$row['goals_fail']?></div>
+				<div class="team-point lineelement"><?php echo $row['win']*3+$row['draw'];?></div>
+				<div class="clear"></div>
+			</div><?php
+		}
+		?>
+	</div>
+</div>
+<div class="left-coll-footer"></div>

@@ -1,0 +1,58 @@
+<ul>
+<?php
+
+function printMenu($groups, $parent, $years) {
+    foreach ($groups as $group) {
+        if ($parent == $group->idParent) {
+            ?>
+            <li>
+            	<a href="/admin/statistic/editgroup/id/<?php echo $group->id; ?>/"><?php echo $group->title; ?></a>
+            	<a href="/admin/statistic/deletegroup/id/<?php echo $group->id; ?>/" class="sexybutton sexysimple"><span class="delete">Удалить</span></a>
+            	<a href="/admin/statistic/creategroup/parentid/<?php echo $group->id; ?>/" class="sexybutton sexysimple"><span class="add">Категория</span></a>
+            	<a href="/admin/statistic/createyear/parentid/<?php echo $group->id; ?>/" class="sexybutton sexysimple"><span class="add">Год</span></a>
+            <?php
+            $hasChildGroups = false;
+            foreach ($groups as $g) {
+                if ($g->idParent == $group->id) {
+                    $hasChildGroups = true;
+                    break;
+                }
+            }
+            $hasChildYears = false;
+            foreach ($years as $y) {
+                if ($y->idStatGroup == $group->id) {
+                    $hasChildYears = true;
+                    break;
+                }
+            }
+
+
+            if ($hasChildGroups || $hasChildYears) {
+                echo '<ul>';
+                if ($hasChildGroups)
+                    printMenu($groups, $group->id, $years);
+                if ($hasChildYears) {
+                    foreach ($years as $y)
+                    {
+                        if ($y->idStatGroup == $group->id)
+                        {
+                            ?>
+                            <li><a href="/admin/statistic/edityear/id/<?php echo $y->id; ?>/"><?php echo $y->title; ?></a>
+                            	<a href="/admin/statistic/deleteyear/id/<?php echo $y->id; ?>/" class="sexybutton sexysimple"><span class="delete">Удалить</span></a>
+                            </li>
+                            <?php
+                        }
+                    }
+                }
+                echo '</ul>';
+            }
+            echo '</li>';
+        }
+    }
+}
+
+printMenu($this->statGroups, 0, $this->statYears);
+
+?>
+</ul>
+<a href="/admin/statistic/creategroup/parentid/0/" class="sexybutton sexysimple"><span class="add">Добавить категорию</span></a>

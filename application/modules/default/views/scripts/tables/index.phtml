@@ -1,0 +1,56 @@
+<div class="black_bg">
+	<form method="post" action="">
+		<select name="id">
+			<?php 
+				foreach ($this->tours as $num)
+				{?>
+					<option value="<?php echo $num->id ?>"><?php echo $num->title; ?></option>
+				<?php } 
+			?>
+		</select>
+		<input type="submit" value="Показать"/>
+	</form>
+	
+	<div id="games">
+		<?php 
+			foreach ($this->games as $game)
+			{?>
+				<span><?php echo $game['teamName_1']; ?></span>
+				<span><?php echo $game['goals_1']; ?></span>
+				<span>:</span>
+				<span><?php echo $game['goals_2']; ?></span>
+				<span><?php echo $game['teamName_2']; ?></span><br/>
+			<?php } 
+		?>
+	</div>
+<br/>
+	<div id="table">
+	<table>
+		<tr>
+			<th>Команда</th>
+			<th>И</th>
+			<th>В</th>
+			<th>Н</th>
+			<th>П</th>
+			<th>З-П</th>
+			<th>О</th>
+		</tr>
+		<?php 
+			foreach ($this->table as $teamResult)
+			{
+			?>
+				<tr>
+					<td><?php echo $teamResult['title'] ?></td>
+					<td><?php echo (int)$teamResult['win']+(int)$teamResult['draw']+(int)$teamResult['fail'] ?></td>
+					<td><?php echo (int)$teamResult['win'] ?></td>
+					<td><?php echo (int)$teamResult['draw'] ?></td>
+					<td><?php echo (int)$teamResult['fail'] ?></td>
+					<td><?php echo (int)$teamResult['goals'] ?>-<?php echo $teamResult['goals_fail'] ?></td>
+					<td><?php echo (int)$teamResult['win']*3 + (int)$teamResult['draw']?></td>
+				</tr>
+			<?php }
+		?>
+	</table>
+	</div>
+<br/>
+</div>

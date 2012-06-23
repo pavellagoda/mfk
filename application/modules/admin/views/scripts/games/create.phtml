@@ -1,0 +1,98 @@
+<script type="text/javascript">
+	$(function(){
+ 	 $.datepicker.setDefaults(
+	        $.extend($.datepicker.regional["ru"])
+	  );
+	  $("#date").datepicker({
+		  dateFormat: "yy-mm-dd",
+	  });
+	});
+</script>
+
+<form method="post" action="#">
+
+<div class="grid_2"><label for="tour_id">Тур:</label></div>
+<div class="grid_4">
+	<select name="tour_id" id="tour_id">
+	<?php foreach ($this->tours as $tour)
+	{ ?>
+	<option value="<?php echo $this->escape($tour->id);?>"<?php echo $this->game->idTour == $tour->id?' selected="selected"':'';?>><?php echo $this->escape($tour->title).'('. $this->escape($tour->tournamentTitle) .')';?></option>
+	<?php } ?>
+	</select>
+</div>
+<div class="clear"></div>
+
+<div class="grid_2"><label for="team_id_1">Команда 1:</label></div>
+<div class="grid_4">
+	<select name="team_id_1" id="team_id_1">
+	<?php foreach ($this->teams as $team)
+	{ ?>
+	<option value="<?php echo $this->escape($team->id);?>"<?php echo $this->game->idTeam1 == $team->id?' selected="selected"':'';?>><?php echo $this->escape($team->title);?></option>
+	<?php } ?>
+	</select>
+</div>
+<div class="clear"></div>
+
+<div class="grid_2"><label for="team_id_2">Команда 2:</label></div>
+<div class="grid_4">
+	<select name="team_id_2" id="team_id_2">
+	<?php foreach ($this->teams as $team)
+	{ ?>
+	<option value="<?php echo $this->escape($team->id);?>"<?php echo $this->game->idTeam2 == $team->id?' selected="selected"':'';?>><?php echo $this->escape($team->title);?></option>
+	<?php } ?>
+	</select>
+</div>
+<div class="clear"></div>
+
+<div class="grid_2"><label for="goals_1">Голы команды 1:</label></div>
+<div class="grid_4"><input type="text" name="goals_1" id="goals_1"
+	value="<?php echo $this->escape($this->game->goals1);?>" /></div>
+<div class="clear"></div>
+
+<div class="grid_2"><label for="goals_2">Голы команды 2:</label></div>
+<div class="grid_4"><input type="text" name="goals_2" id="goals_2"
+	value="<?php echo $this->escape($this->game->goals2);?>" /></div>
+<div class="clear"></div>
+
+<div class="grid_2"><label for="news_id">Новость</label></div>
+<div class="grid_4">
+	<select name="news_id" id="news_id">
+		<option value=""></option>
+		<?php foreach($this->news as $new) {
+			?>
+			<option value="<?php echo $new->id; ?>"><?php echo $new->title; ?></option>
+		<?php } ?>
+	</select>
+</div>
+<div class="clear"></div>
+
+
+<div class="grid_2"><label for="date">Дата:</label></div>
+<div class="grid_4"><input type="date" name="date" id="date" value=""/></div>
+<div class="clear"></div>
+
+<div class="grid_2"><label for="time">Время:</label></div>
+<div class="grid_4"><input type="time" name="time" id="time" value=""/></div>
+<div class="clear"></div>
+
+<div class="grid_2"><label for="goals_2">Спорткомплекс</label></div>
+<div class="grid_4">
+	<select name="sportcomplex_id" id="sportcomplex_id">
+		<option value=""></option>
+		<?php foreach($this->places as $places) {
+			?>
+			<option value="<?php echo $places->id; ?>"><?php echo $places->name; ?></option>
+		<?php } ?>
+	</select>
+</div>
+
+<div class="grid_2"><label for="completed">Игра состоялась:</label></div>
+<div class="grid_4"><input type="checkbox" name="completed" id="completed"
+	<?php echo $this->game->completed?'checked="on"':'';?> value="1"/></div>
+<div class="clear"></div>
+
+<div class="grid_2 prefix_2">
+<button class="sexybutton sexysimple"><span class="save">Сохранить</span></button>
+</div>
+<div class="clear"></div>
+</form>

@@ -1,0 +1,27 @@
+<?php
+	foreach($this->photos as $photo)
+	{
+//		print_r($photo); die;
+		?>
+		<div class="grid_3">
+			<img class="photo-preview" src="<?php echo '/photofiles/'.$photo['photo_categories_id'].'/'.$photo['id'].'.jpg' ?>"/>
+		</div>
+		
+		<div class="grid_5">
+			<span><?php echo $photo['category_title'] ?></span>
+		</div>
+		
+		<a class="sexybutton sexysimple" href="/admin/photo/delete/id/<?php echo $photo['id'] ?>">
+			<span class="delete">Удалить</span>
+		</a>
+		<div class="clear"></div>
+	<?php 
+	}
+?>
+
+<?php echo $this->paginationControl($this->photos, 'Sliding', 'pagination.phtml'); ?>
+
+<a class="sexybutton sexysimple" href="/admin/photo/add">
+	<span class="add">Добавить фотографии</span>
+</a>
+<div class="clear"></div>

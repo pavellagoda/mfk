@@ -1,0 +1,6 @@
+<?php 
+	if($this->newsItem->type=='main')
+		echo $this->render('index/main-news.phtml');
+	else 
+		echo $this->render('index/full-page-news.phtml');
+?>

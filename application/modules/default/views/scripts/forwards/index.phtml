@@ -1,0 +1,53 @@
+<div class="innerpage lineelement">
+	<h4 class="newshead">
+		<span>Бомбардиры</span>
+	</h4>
+	<div class="innerpage-content">
+		<div class="table-head">
+			<div class="team-position lineelement">&nbsp;</div>
+			<div class="forward-name lineelement">Имя</div>
+			<div class="team-name lineelement">Команда</div>
+			<div class="forward-goals lineelement">Голы</div>
+			<div class="forward-pen lineelement">С пенальти</div>
+			<div class="clear"></div>
+		</div>
+		<?php 
+		$i=0;
+		foreach($this->forwards as $forward)
+		{
+			$i++
+		?>
+			<div class="table-teams <?php if($forward->team=='Монолит') echo 'monolit-team' ?>">
+				<div class="team-position lineelement"><?php echo $i; ?></div>
+				<div class="forward-name lineelement"><?php echo $forward->name ?></div>
+				<div class="team-name lineelement"><?php echo $forward->team ?></div>
+				<div class="forward-goals lineelement"><?php echo $forward->goals ?></div>
+				<div class="forward-pen lineelement"><?php echo $forward->pen ?></div>
+				<div class="clear"></div>
+			</div>
+		<?php 
+		} 
+		?>
+	</div>
+	<div class="innerpage-footer"></div>
+</div>
+<div class="inner-usercoll users-coll lineelement">
+	<?php
+		echo $this->render('includes/tournament-table.phtml');
+	?>
+	<div class="last-monolit-news news_block_element">
+		<h4 class="newshead">
+			<span>Новости</span>
+		</h4>
+		<ul>
+			<?php foreach($this->lastMonolitNews as $lastMonolitNew) 
+			{?>
+				<li>
+					<a href="/index/view/id/<?php echo $lastMonolitNew->id; ?>"><?php echo $lastMonolitNew->title; ?></a>
+				</li>
+			<?php } ?>
+		</ul>
+	</div>
+	<div class="left-coll-footer"></div>
+</div>
+<div class="clear"></div>

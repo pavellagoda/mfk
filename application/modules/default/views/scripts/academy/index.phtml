@@ -1,0 +1,108 @@
+<div class="innerpage lineelement">
+	<h4 class="newshead">
+		<span>Академия</span>
+	</h4>
+	<div class="innerpage-content">
+		<img src="/i/academy.jpg"/>
+		<div class="player-list">
+		
+		
+			<div class="trainers">
+				<div class="lineelement player-position">Тренер</div>
+				<div class="lineelement player-infos">
+					<div class="player-info">
+						<div class="lineelement player-name">Стрелец Антон</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		
+			<div class="fieldplayers">
+				<div class="lineelement player-position">Вратари</div>
+				<div class="lineelement player-infos">
+					<div class="player-info">
+						<div class="lineelement player-name">Динчиян Арам</div>
+						<div class="lineelement player-date">24.02.1995</div>
+						<div class="clear"></div>
+					</div>
+					<div class="player-info">
+						<div class="lineelement player-name">Явдошенко Роман</div>
+						<div class="lineelement player-date">28.08.1993</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			
+			<div class="fieldplayers">
+				<div class="lineelement player-position">Универсалы</div>
+				<div class="lineelement player-infos">
+					<div class="player-info">
+						<div class="lineelement player-name">Лазаренко Денис</div>
+						<div class="lineelement player-date">12.07.1994</div>
+						<div class="clear"></div>
+					</div>
+					<div class="player-info">
+						<div class="lineelement player-name">Харебава Ираклий</div>
+						<div class="lineelement player-date">17.07.1995</div>
+						<div class="clear"></div>
+					</div>
+					<div class="player-info">
+						<div class="lineelement player-name">Матюшев Богдан</div>
+						<div class="lineelement player-date">05.12.1994</div>
+						<div class="clear"></div>
+					</div>
+					<div class="player-info">
+						<div class="lineelement player-name">Педяш Александр</div>
+						<div class="lineelement player-date">04.03.1994</div>
+						<div class="clear"></div>
+					</div>
+					<div class="player-info">
+						<div class="lineelement player-name">Рязанов Кирилл</div>
+						<div class="lineelement player-date">23.03.1994</div>
+						<div class="clear"></div>
+					</div>
+					<div class="player-info">
+						<div class="lineelement player-name">Табаньков Александр</div>
+						<div class="lineelement player-date">28.06.1994</div>
+						<div class="clear"></div>
+					</div>
+					<div class="player-info">
+						<div class="lineelement player-name">Канцедал Евгений</div>
+						<div class="lineelement player-date">21.01.1994</div>
+						<div class="clear"></div>
+					</div>
+					<div class="player-info">
+						<div class="lineelement player-name">Божедомов Михаил</div>
+						<div class="lineelement player-date">03.03.1994</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			
+		</div>
+	</div>
+	<div class="innerpage-footer"></div>
+</div>
+<div class="inner-usercoll users-coll lineelement">
+
+	<?php echo $this->render('includes/tournament-table.phtml'); ?>
+
+	<div class="last-monolit-news news_block_element">
+		<h4 class="newshead">
+			<span>Новости</span>
+		</h4>
+		<ul>
+			<?php foreach($this->lastMonolitNews as $lastMonolitNew) 
+			{?>
+				<li>
+					<a href="/index/view/id/<?php echo $lastMonolitNew->id; ?>"><?php echo $lastMonolitNew->title; ?></a>
+				</li>
+			<?php } ?>
+		</ul>
+	</div>
+	<div class="left-coll-footer"></div>
+</div>
+<div class="clear"></div>

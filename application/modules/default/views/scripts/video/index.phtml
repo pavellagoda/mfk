@@ -1,0 +1,54 @@
+<?php echo $this->render('includes/videopage.phtml'); ?>
+
+<div class="comment-header video-comment-header">Комментарии</div>
+<div id="video_comments" class="comments">
+</div>
+<div class="clear"></div>
+
+<div id="video_comment_form" class="grid_10">
+	<div class="comment-header">Добавить свой комментарий</div>
+	<?php if($this->loggedUser) { ?>
+		<form action="javascript:void(0);" class="contact-form">
+	       <div class="contact-form-block">
+		       <div class="grid_2">
+		               <label for="name">Имя<?php echo count($this->formErrors['name'])?' <span class="errors">(поле заполнено неправильно)</span>':'';?>:</label>
+		       </div>
+		       <div class="grid_5">
+		               <input type="text" id="name" name="name" />
+		       </div>
+		       <div class="clear"></div>
+		   </div>
+		   <div class="contact-form-block">
+		       <div class="grid_2">
+		               <label for="text">Комментарий<?php echo count($this->formErrors['text'])?' <span class="errors">(поле заполнено неправильно)</span>':'';?>:</label>
+		       </div>
+		       <div class="grid_5">
+		               <textarea id="text" rows="7" name="text"></textarea>
+		       </div>
+		       <div class="clear"></div>
+		   </div>
+		   <div class="contact-form-block">
+		   
+		   		<div class="grid_2">
+	           		<label for="text">Введите символы <?php echo count($this->formErrors['text'])?' <span class="errors">(поле заполнено неправильно)</span>':'';?>:</label>
+	           </div>
+		   		
+		       <div class="grid_5">
+		            <img id="cimg" width="200" height="50" alt="" src="/i/bg.png" />
+		            <input type="hidden" name="captcha[id]" value="6ff7907ae6b23d1a4e07b56a4c1794ff" id="captcha-id" />
+		            <div class="clear"></div>
+		            <input type="text" name="captcha[input]" id="captcha-input" value="" />
+		       </div>
+		       <div class="clear"></div>
+	       </div>
+	       <div class="grid_5">
+	               <button class="">Добавить комментарий</button>
+	       </div>
+	   </form>
+   <?php } else { ?>
+   		<div class="for-logged-user">Комментарии могут оставлять только зарегистрированные пользователи.<br/>Мы рекомендуем Вам <a href="/login">зайти под своим именем</a>  или <a href="/register">зарегистрироваться</a></div>
+   <?php } ?>
+</div>
+<div class="clear"></div>
+	</div>
+</div>

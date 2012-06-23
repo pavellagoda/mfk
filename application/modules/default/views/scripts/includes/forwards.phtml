@@ -1,0 +1,34 @@
+<div class="tournament-table news_block_element">
+	<h4 class="newshead">
+		<span>Бомбардиры</span>
+	</h4>
+	<div class="table">
+		<div class="table-head">
+			<div class="team-position lineelement">&nbsp;</div>
+			<div class="player-name-forwards lineelement">Игрок</div>
+			<div class="team-balls lineelement">голы</div>
+			<div class="team-balls lineelement">пен</div>
+			<div class="clear"></div>
+		</div>
+		
+		<?php
+			$i = 0; 
+			foreach($this->forwards as $forward) {
+				$i++
+		?>
+		
+		<div class="table-teams <?php if($forward->team=='Монолит') echo 'monolit-team' ?>">
+			<div class="team-position lineelement"><?php echo $i; ?></div>
+			<div class="player-name-forwards lineelement"><?php echo $forward->name.' ('.$forward->team.')' ?></div>
+			<div class="team-balls lineelement"><?php echo $forward->goals ?></div>
+			<div class="team-balls lineelement"><?php echo $forward->pen ?></div>
+			<div class="clear"></div>
+		</div>
+		
+		<?php } ?>
+	</div>
+	
+	<a href="/forwards" class="menutype-button all-forwards">Все бомбардиры</a>
+	<div class="clear"></div>
+</div>
+<div class="left-coll-footer"></div>

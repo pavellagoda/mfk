@@ -1,0 +1,70 @@
+<form method="post" enctype="multipart/form-data">
+<div class="grid_2"><label for="title">Заголовок:</label></div>
+<div class="grid_4"><input type="text" name="title" id="title"
+	value="<?php echo $this->escape($this->newsItem->title);?>" /></div>
+<div class="clear"></div>
+
+<div class="grid_2"><label for="category">Категория:</label></div>
+<div class="grid_4">
+	<select name="category" id="category">
+		<?php
+		foreach ($this->newsCategories as $category)
+		{
+			?>
+			<option value="<?php echo $category->id;?>"<?php echo $category->id == $this->newsItem->idNewsCategory?' selected="selected"':'';?>><?php echo $this->escape($category->title);?></option>
+			<?php
+		}
+		?>
+	</select>
+</div>
+<div class="clear"></div>
+
+<div class="grid_2"><label for="rubric">Рубрика:</label></div>
+<div class="grid_4">
+		<?php
+		foreach ($this->newsRubrics as $rubric)
+		{
+			?>
+				<div>
+					<input type="checkbox" <?php echo in_array($rubric->id, $this->newsRubricsLinks)?'checked="checked"':''; ?> name="tags[<?php echo $rubric->id;?>]" value="<?php echo $rubric->id;?>" id="rubric_<?php echo $rubric->id;?>"/>
+					<label for="rubric_<?php echo $rubric->id;?>"><?php echo $rubric->name;?></label>
+				</div>
+			<?php
+		}
+		?>
+</div>
+<div class="clear"></div>
+
+
+<div class="grid_2"><label for="icon">Изображение:</label></div>
+<div class="grid_4"><input type="file" name="icon" id="icon"/>
+</div>
+<div class="clear"></div>
+
+<div class="grid_2"><label for="type">Тип новости:</label></div>
+<div class="grid_4">
+	<select id="type" name="type">
+		<option value="main" <?php if($this->newsItem->type=='main') echo 'selected="selected"' ?>>Обычная</option>
+		<option value="online" <?php if($this->newsItem->type=='online') echo 'selected="selected"' ?>>Он-лайн</option>
+		<option value="statistic"  <?php if($this->newsItem->type=='statistic') echo 'selected="selected"' ?>>Статистика</option>
+	</select>
+</div>
+<div class="clear"></div>
+
+
+<div class="grid_2"><label for="short">Краткое содержание:</label></div>
+<div class="grid_4"><textarea id="short" name="short"><?php echo $this->newsItem->short;?></textarea>
+</div>
+<div class="clear"></div>
+
+<div class="grid_2"><label for="full">Содержание:</label></div>
+<div class="clear"></div>
+<div class="grid_12 alpha omega"><textarea id="full" name="full"
+	class="editor"><?php echo $this->newsItem->full;?></textarea></div>
+<div class="clear"></div>
+
+<div class="grid_2 prefix_2">
+<button class="sexybutton sexysimple"><span class="save">Сохранить</span></button>
+</div>
+<div class="clear"></div>
+</form>

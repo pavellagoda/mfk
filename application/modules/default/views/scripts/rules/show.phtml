@@ -1,0 +1,21 @@
+<div class="news_block_element">
+	<h4 class="newshead">
+		<span>Правила</span>
+	</h4>
+	<div class="grid_4">
+		<a class="rules-link menutype-button" href="/rules">Правила футзала</a>
+	<?php
+		foreach($this->rules as $rule)
+		{
+	?>
+			<a class="rules-link menutype-button" href="/rules/show/rule/<?php echo $rule->link ?>"><?php echo $rule->name ?></a>
+	<?php
+		}
+	?>
+	</div>
+	<div class="grid_7">
+		<h1><?php echo $this->rule->name; ?></h1>
+		<div class="rules-text"><?php echo $this->rule->content; ?></div>
+	</div>
+	<div class="clear"></div>
+</div>

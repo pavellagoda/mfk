@@ -1,0 +1,18 @@
+<div class="news_block_element">
+	<h4 class="newshead">
+		<span>Восстановление пароля</span>
+	</h4>
+	<div class="register-form">
+		<?php 
+			if(!$this->sended)
+			{
+				if($this->wasPost)
+					echo '<div class="center error">Пользователь с таким почтовым адресом не существует</div>';
+				echo $this->form;
+			}
+			else 
+				echo '<div class="center">Пароль выслан на ваш почтовый ящик</div>';
+		?>
+	</div>
+	<div class="clear"></div>
+</div>

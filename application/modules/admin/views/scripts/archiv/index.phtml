@@ -1,0 +1,19 @@
+<table>
+	<tr>
+		<th>Название</th>
+		<th>&nbsp;</th>
+	</tr>
+	<?php
+	foreach ($this->archivs as $archiv)
+	{
+		?>
+		<tr>
+			<td><?php echo $archiv->title;?></td>
+			<td>
+				<a href="/admin/archiv/edit/id/<?php echo $archiv->id; ?>" class="sexybutton sexysimple"><span class="edit">Редактировать</span></a>
+			</td>
+		</tr>
+		<?php
+	}
+	?>
+</table>

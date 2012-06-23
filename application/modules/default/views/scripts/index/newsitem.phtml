@@ -1,0 +1,16 @@
+<div class="news-item-simple">
+
+	<?php // var_dump($this->created_ts); die; ?>
+
+	<div class="item">
+		<a href="<?php echo $this->url(array('controller'=>'index', 'action'=>'view', 'id'=>$this->id));?>"><img class="news_img" src="<?php echo $this->custom_icon?$this->custom_icon:'/i/simple.jpg';?>"/></a>
+		<h3 class="newslink"><a href="<?php echo $this->url(array('controller'=>'index','action'=>'view', 'id'=>$this->id));?>"><?php echo $this->escape($this->title);?></a></h3>
+		<p class="short"><?php echo $this->short;?></p>
+		<a  class="user-info" href="<?php echo $this->url(array('controller'=>'index', 'action'=>'view', 'id'=>$this->id));?>">
+			<span class="comments"><?php echo (int)$this->comments; ?></span>
+			<span class="views"><?php echo (int)$this->views_count; ?></span>
+		</a>
+		<p class="date"><?php echo FW_Date::convert($this->created_ts, FW_Date::MYSQL_DATETIME, FW_Date::SITE_DATE);?></p>
+		<div class="clear"></div>
+	</div>
+</div>
